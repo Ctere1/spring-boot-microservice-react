@@ -108,6 +108,12 @@
 > 
 >   ![Profile](./screenshots/swagger_product.png)
 
+
+### **JWT Notification**
+> * JWT expired notification
+> 
+>   ![Profile](./screenshots/jwt-expired.png)
+
 ## ©License
 ![GitHub](https://img.shields.io/github/license/Ctere1/spring-boot-microservice-react?style=flat-square)
 
