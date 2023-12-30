@@ -33,7 +33,7 @@
 - JWT is used for authentication. 
 
 > [!TIP]    
-> For more detail about the application, please refer to the following project: [Spring Boot](https://github.com/Ctere1/spring-boot-microservice) 
+> For more detail about the application, please refer to the following project: [Spring Boot Microservice](https://github.com/Ctere1/spring-boot-microservice) 
 
 
 ## 💾Installation Guide
