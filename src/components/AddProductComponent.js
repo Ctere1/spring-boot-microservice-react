@@ -69,11 +69,11 @@ class AddProduct extends Component {
                     submitted: true,
                 });
                 console.log(data);
+                toast("New product added");
             })
             .catch((e) => {
                 console.log(e);
             });
-        toast("New product added");
     }
 
     newProduct() {

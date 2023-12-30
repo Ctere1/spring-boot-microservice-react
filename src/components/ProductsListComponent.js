@@ -87,11 +87,11 @@ const ProductsList = () => {
             .then((response) => {
                 console.log(response.data);
                 refreshList();
+                toast("All products deleted");
             })
             .catch((e) => {
                 console.log(e);
             });
-        toast("All products deleted");
     };
 
     const deleteProduct = (product) => {
@@ -99,11 +99,11 @@ const ProductsList = () => {
             .then((response) => {
                 console.log(response.data);
                 refreshList();
+                toast(product.name + " deleted");
             })
             .catch((e) => {
                 console.log(e);
             });
-        toast(product.name + " deleted");
         handleCloseModal();
     };
 
@@ -113,11 +113,11 @@ const ProductsList = () => {
                 const { products } = response.data;
                 setCartProducts(products);
                 console.log(response.data);
+                toast(product.name + " added to cart");
             })
             .catch((e) => {
                 console.log(e);
             });
-        toast(product.name + " added to cart");
         handleCloseModal();
     };
 
