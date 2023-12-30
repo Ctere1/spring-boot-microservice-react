@@ -100,6 +100,7 @@ const ProductsList = () => {
             .catch((e) => {
                 console.log(e);
             });
+        handleCloseModal();
     };
 
     const addToCart = (product) => {
@@ -113,6 +114,7 @@ const ProductsList = () => {
             .catch((e) => {
                 console.log(e);
             });
+        handleCloseModal();
     };
 
     const removeProductFromCart = (product) => {
