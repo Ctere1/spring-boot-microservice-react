@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { createProduct } from "../actions/products";
 import { Link } from "react-router-dom";
+import Button from '@mui/material/Button';
+import { Add, ArrowBack } from "@mui/icons-material";
 
 class AddProduct extends Component {
     constructor(props) {
@@ -9,7 +11,7 @@ class AddProduct extends Component {
         this.onChangeName = this.onChangeName.bind(this);
         this.onChangeDescription = this.onChangeDescription.bind(this);
         this.onChangeCategory = this.onChangeCategory.bind(this);
-        this.onChangePrice= this.onChangePrice.bind(this);
+        this.onChangePrice = this.onChangePrice.bind(this);
         this.saveProduct = this.saveProduct.bind(this);
         this.newProduct = this.newProduct.bind(this);
 
@@ -50,7 +52,7 @@ class AddProduct extends Component {
 
     saveProduct() {
         const { name, description, category, price } = this.state;
-      
+
         this.props
             .createProduct(name, description, category, price)
             .then((data) => {
@@ -89,12 +91,13 @@ class AddProduct extends Component {
                 {this.state.submitted ? (
                     <div>
                         <h4>You submitted successfully!</h4>
-                        <button className="btn btn-success" onClick={this.newProduct}>
-                            Add
-                        </button>
+                        <div className="d-flex justify-content-center">
+                            <Button startIcon={<Add />} className="m-3" variant="outlined" color="primary" onClick={this.newProduct} style={{ textTransform: "none" }}>Add</Button>
 
-                        <Link to={"/products"}><button className="m-3 btn btn-secondary">  Go back</button></Link>
-
+                            <Link to={"/products"}>
+                                <Button startIcon={<ArrowBack />} className="m-3" variant="outlined" color="primary" style={{ textTransform: "none" }}>Go back</Button>
+                            </Link>
+                        </div>
                     </div>
                 ) : (
                     <div>
@@ -150,9 +153,10 @@ class AddProduct extends Component {
                             />
                         </div>
 
-                        <button onClick={this.saveProduct} className="mt-3 btn btn-success">
-                            Submit
-                        </button>
+                        <div className="d-flex justify-content-center">
+                            <Button startIcon={<Add />} className="m-3" variant="outlined" color="primary" onClick={this.saveProduct} style={{ textTransform: "none" }}>Add</Button>
+                        </div>
+
                     </div>
                 )}
             </div>

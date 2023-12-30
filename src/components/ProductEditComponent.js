@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { updateProduct, deleteProduct } from "../actions/products";
 import ProductService from "../services/ProductService";
 import { withRouter } from '../common/WithRouter';
+import Button from '@mui/material/Button';
+import { Update, Delete } from "@mui/icons-material";
 
 class Product extends Component {
     constructor(props) {
@@ -10,7 +12,7 @@ class Product extends Component {
         this.onChangeName = this.onChangeName.bind(this);
         this.onChangeDescription = this.onChangeDescription.bind(this);
         this.onChangeCategory = this.onChangeCategory.bind(this);
-        this.onChangePrice= this.onChangePrice.bind(this);
+        this.onChangePrice = this.onChangePrice.bind(this);
         this.getProduct = this.getProduct.bind(this);
         this.updateStatus = this.updateStatus.bind(this);
         this.updateContent = this.updateContent.bind(this);
@@ -197,25 +199,18 @@ class Product extends Component {
                                 />
                             </div>
 
-                            
                         </form>
+                        <br />
+                        <div className="d-flex justify-content-center">
+                            <Button startIcon={<Delete />} className="m-1" variant="outlined" color="error" onClick={this.removeProduct} style={{ textTransform: "none" }}>Delete</Button>
+                            <Button startIcon={<Update />} className="m-1" variant="outlined" color="success" onClick={this.updateContent} style={{ textTransform: "none" }}>Update</Button>
 
+                        </div>
+                        <br />
+                        <div className="d-flex justify-content-center">
+                            <p>{this.state.message}</p>
+                        </div>
 
-                        <button
-                            className="m-1 btn btn-danger"
-                            onClick={this.removeProduct}
-                        >
-                            Delete
-                        </button>
-
-                        <button
-                            type="submit"
-                            className="m-1 btn btn-success"
-                            onClick={this.updateContent}
-                        >
-                            Update
-                        </button>
-                        <p>{this.state.message}</p>
                     </div>
                 ) : (
                     <div>

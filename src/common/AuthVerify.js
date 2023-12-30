@@ -1,42 +1,47 @@
-import React, { useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
-import { logout } from "../actions/auth";
+import React, { Component } from "react";
 
+class AuthVerify extends Component {
+    constructor(props) {
+        super(props);
 
-const parseJwt = (token) => {
-    try {
-        return JSON.parse(atob(token.split('.')[1]));
-    } catch (e) {
-        return null;
+        this.checkTokenExpiration = this.checkTokenExpiration.bind(this);
     }
-};
 
-const AuthVerify = () => {
-    const navigate = useNavigate();
-
-    useEffect(() => {
+    componentDidMount() {
         console.log("AuthVerify component initialized");
 
-        const checkTokenExpiration = () => {
-            const user = JSON.parse(localStorage.getItem("user"));
+        this.checkTokenExpiration();
 
-            if (user) {
-                const decodedJwt = parseJwt(user.accessToken);
+        this.intervalId = setInterval(this.checkTokenExpiration, 10000); // check every 10 seconds
+    }
 
-                if (decodedJwt.exp * 1000 < Date.now()) {
-                   logout();
-                }
+    componentWillUnmount() {
+        clearInterval(this.intervalId);
+    }
+
+    checkTokenExpiration() {
+        const user = JSON.parse(localStorage.getItem("user"));
+
+        if (user) {
+            const decodedJwt = this.parseJwt(user.accessToken);
+
+            if (decodedJwt.exp * 1000 < Date.now()) {
+                this.props.logOut();
             }
-        };
+        }
+    }
 
-        checkTokenExpiration();
+    parseJwt(token) {
+        try {
+            return JSON.parse(atob(token.split('.')[1]));
+        } catch (e) {
+            return null;
+        }
+    }
 
-        const intervalId = setInterval(checkTokenExpiration, 10000); // 10 saniyede bir kontrol et
-
-        return () => clearInterval(intervalId); // Temizleme işlemi bileşen unmount olduğunda yapılır
-    }, [navigate]);
-
-    return <div></div>;
-};
+    render() {
+        return <div></div>;
+    }
+}
 
 export default AuthVerify;
