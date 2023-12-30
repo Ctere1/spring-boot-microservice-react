@@ -7,6 +7,7 @@
   ![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
   ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
   ![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
+  ![MUI](https://img.shields.io/badge/MUI-%230081CB.svg?style=for-the-badge&logo=mui&logoColor=white)
   <br>
 </h1>
 
@@ -32,6 +33,7 @@
 - The application is a simple application that allows users to register and login. Once the user logs in, they can view a list of products and user's cart. 
 - The user can create, edit and delete products and add products to cart.
 - JWT is used for authentication. 
+- Redux is used for state management.
 
 > [!TIP]    
 > For more detail about the application, please refer to the following project: [Spring Boot Microservice](https://github.com/Ctere1/spring-boot-microservice) 
@@ -54,22 +56,57 @@
 
 ## 📷Screenshots
 
+### **Home Page**
+> * Home page
+> 
+>   ![Profile](./screenshots/ss.png)
+
+
 ### **Login - Signup Pages**
-> * User can login on this page.
+> * User can login on this page
+>   
+>   ![Login](./screenshots/ss1.png)
 >
->   ![Login](./screenshots/ss.png)
->
-> * User can signup on this page.
->
+> * User can signup on this page
+>   
 >   ![Signup](./screenshots/ss2.png)
 
 
-### **Home Page**
-> * Home page.
+### **Profile Page**
+> * User profile page
+> 
+>   ![Profile](./screenshots/ss3.png)
+
+### **Products Page**
+> * Products page
 > 
 >   ![Profile](./screenshots/ss4.png)
+>
+> * Product details modal
+>   
+>   ![Profile](./screenshots/ss5.png)
+>   
+> * Product edit page
+> 
+>   ![Profile](./screenshots/ss6.png)
 
+### **About Page**
+> * User profile page
+> 
+>   ![Profile](./screenshots/ss7.png)
 
+### **Swagger Documents**
+> * User service
+> 
+>   ![Profile](./screenshots/swagger_user.png)
+>
+> * Cart service
+> 
+>   ![Profile](./screenshots/swagger_cart.png)
+>
+> * Product service
+> 
+>   ![Profile](./screenshots/swagger_product.png)
 
 ## ©License
 ![GitHub](https://img.shields.io/github/license/Ctere1/spring-boot-microservice-react?style=flat-square)
