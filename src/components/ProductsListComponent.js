@@ -146,9 +146,13 @@ const ProductsList = () => {
                     <Card style={{ marginTop: 0 }}>
                         <Card.Header><strong>Id:</strong> {currentProduct?.id}</Card.Header>
                         <Card.Body >
-                            <Card.Title> <strong>Name:</strong> {currentProduct?.name}</Card.Title>
+                            <Card.Title></Card.Title>
                             <Card.Text>
                                 <div>
+                                    <label>
+                                        <strong>Name:</strong>
+                                    </label>{" "}
+                                    {currentProduct?.name}
                                     <label>
                                         <strong>Description:</strong>
                                     </label>{" "}

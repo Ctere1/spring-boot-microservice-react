@@ -96,6 +96,9 @@ class App extends Component {
                       <NavDropdown.Item href="/about">
                         About
                       </NavDropdown.Item>
+                      <NavDropdown.Item href="http://localhost:8761/" target="_blank">
+                        Eureka Server
+                      </NavDropdown.Item>
                       <NavDropdown.Divider />
                       <NavDropdown.Item href="http://localhost:5860/swagger-ui/index.html#/" target="_blank">
                         Swagger Doc
