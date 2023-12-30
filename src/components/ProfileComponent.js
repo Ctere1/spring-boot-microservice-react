@@ -16,19 +16,24 @@ class Profile extends Component {
             <div className="container">
                 <header className="jumbotron">
                     <h3>
-                        <strong>{currentUser.username}</strong> Profile
+                        <strong>Profile</strong>
                     </h3>
                 </header>
                 <Card style={{ marginTop: 0 }}>
                     <Card.Header><strong>Id:</strong> {currentUser.id}</Card.Header>
                     <Card.Body>
                         <Card.Text>
-                            <strong>Token:</strong> {currentUser.accessToken.substring(0, 20)} ...{" "}
-                            {currentUser.accessToken.substr(currentUser.accessToken.length - 20)}{" "}
+                            <label>
+                                <strong>Username:</strong>
+                            </label>{" "}
+                            {currentUser.username}
                             <label>
                                 <strong>Email:</strong>
                             </label>{" "}
                             {currentUser.email}
+                            <label>
+                                <strong>Token:</strong> {currentUser.accessToken.substring(0, 20)} ... {currentUser.accessToken.substr(currentUser.accessToken.length - 20)}
+                            </label>{" "}
                         </Card.Text>
                     </Card.Body>
                 </Card>
