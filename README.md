@@ -29,7 +29,8 @@
 ## ℹ️ Introduction
 
 - This is a simple application to demonstrate how to integrate Spring Boot (Microservice) and React. 
-- The application is a simple tutorial application that allows users to register and login to the application. Once the user logs in, they can view a list of products. The user can create, edit and delete products and add products to cart.
+- The application is a simple tutorial application that allows users to register and login to the application. Once the user logs in, they can view a list of products. 
+- The user can create, edit and delete products and add products to cart.
 - JWT is used for authentication. 
 
 > [!TIP]    
