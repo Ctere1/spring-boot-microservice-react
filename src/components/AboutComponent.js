@@ -10,7 +10,7 @@ export default class About extends Component {
     }
 
     componentDidMount() {
-      //
+        //
     }
 
     render() {
@@ -20,16 +20,17 @@ export default class About extends Component {
                     <h3>{this.state.content}</h3>
                     <div>
                         <p>
-                            About Page. 
+                            Developed by Cemil Tan.
                             <br />
                             <br />
-                            Some text:
+                            Contact Me:
                             <br />
                             <br />
                             <ul>
-                                <li>Some list</li>
+                                <li><strong>Email</strong>: cemiltan896@gmail.com</li>
+                                <li><strong>Linkedin</strong>: <a href="https://www.linkedin.com/in/cemil-tan-a337b512b/" target="_blank">Cemil Tan Linkedin</a></li>
+                                <li><strong>Github</strong>: <a href="https://github.com/Ctere1" target="_blank">Cemil Tan Github</a></li>
                             </ul>
-
                         </p>
                     </div>
                 </header>
