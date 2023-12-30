@@ -25,7 +25,8 @@ import { history } from './helpers/history';
 import AuthVerify from "./common/AuthVerify";
 import EventBus from "./common/EventBus";
 import { Login, Logout, Person, PersonAdd } from "@mui/icons-material";
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class App extends Component {
   constructor(props) {
@@ -143,6 +144,7 @@ class App extends Component {
 
         </div>
 
+        <ToastContainer />
         <AuthVerify logOut={this.logOut} />
 
       </Router>

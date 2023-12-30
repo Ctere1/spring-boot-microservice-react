@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class AuthVerify extends Component {
     constructor(props) {
@@ -27,6 +29,7 @@ class AuthVerify extends Component {
 
             if (decodedJwt.exp * 1000 < Date.now()) {
                 this.props.logOut();
+                toast("Jwt expired please login again");
             }
         }
     }

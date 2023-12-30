@@ -9,6 +9,8 @@ import cartService from "../services/CartService";
 import DeleteIcon from '@mui/icons-material/Delete';
 import Button from '@mui/material/Button';
 import { Add, ListAltOutlined, ShoppingCartRounded } from "@mui/icons-material";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ProductsList = () => {
     const [products, setProducts] = useState([]);
@@ -89,6 +91,7 @@ const ProductsList = () => {
             .catch((e) => {
                 console.log(e);
             });
+        toast("All products deleted");
     };
 
     const deleteProduct = (product) => {
@@ -100,6 +103,7 @@ const ProductsList = () => {
             .catch((e) => {
                 console.log(e);
             });
+        toast(product.name + " deleted");
         handleCloseModal();
     };
 
@@ -109,11 +113,11 @@ const ProductsList = () => {
                 const { products } = response.data;
                 setCartProducts(products);
                 console.log(response.data);
-
             })
             .catch((e) => {
                 console.log(e);
             });
+        toast(product.name + " added to cart");
         handleCloseModal();
     };
 

@@ -4,6 +4,8 @@ import { createProduct } from "../actions/products";
 import { Link } from "react-router-dom";
 import Button from '@mui/material/Button';
 import { Add, ArrowBack } from "@mui/icons-material";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class AddProduct extends Component {
     constructor(props) {
@@ -71,6 +73,7 @@ class AddProduct extends Component {
             .catch((e) => {
                 console.log(e);
             });
+        toast("New product added");
     }
 
     newProduct() {
@@ -90,8 +93,8 @@ class AddProduct extends Component {
             <div className="submit-form">
                 {this.state.submitted ? (
                     <div>
-                        <h4>You submitted successfully!</h4>
-                        <div className="d-flex justify-content-center">
+                        <div className="justify-content-center">
+                            <h4>Submitted successfully!</h4>
                             <Button startIcon={<Add />} className="m-3" variant="outlined" color="primary" onClick={this.newProduct} style={{ textTransform: "none" }}>Add</Button>
 
                             <Link to={"/products"}>
