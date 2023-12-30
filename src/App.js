@@ -83,7 +83,7 @@ class App extends Component {
                 className="d-inline-block align-top"
                 alt="Logo"
               />{' '}
-              Product API
+              Microservice API
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">

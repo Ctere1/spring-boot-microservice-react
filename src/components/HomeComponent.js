@@ -11,7 +11,7 @@ export default class Home extends Component {
     }
 
     componentDidMount() {
-       //
+        //
     }
 
     render() {
@@ -29,22 +29,17 @@ export default class Home extends Component {
                             <br />
                             <li>Login</li>
                             <li>Register</li>
-                            <li>Access user page</li>
-                            <li>Access moderator page</li>
-                            <li>Access admin page</li>
-                            <li>Access home page</li>
                             <li>Access profile page</li>
-                            <li>Access tutorials page</li>
-                            <li>Add tutorial</li>
-                            <li>Get tutorial details</li>
-                            <li>Update tutorial</li>
-                            <li>Delete tutorial</li>
+                            <li>Access products page</li>
+                            <li>Add product</li>
+                            <li>Get product details</li>
+                            <li>Update product</li>
+                            <li>Delete product</li>
+                            <li>Create cart if not exists</li>
+                            <li>Add product to cart</li>
+                            <li>Delete product from cart</li>
                             <br />
                             This application is secured with Spring Security and JWT Authentication.
-                            <br />
-                            <br />
-                            <strong>NOTE: </strong>
-                            Application creates (register) default user as "ROLE_USER". You can add more users with different roles via API or swagger.
 
                         </p>
                     </div>
