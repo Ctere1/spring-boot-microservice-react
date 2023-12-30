@@ -5,6 +5,8 @@ import ProductService from "../services/ProductService";
 import { withRouter } from '../common/WithRouter';
 import Button from '@mui/material/Button';
 import { Update, Delete } from "@mui/icons-material";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class Product extends Component {
     constructor(props) {
@@ -26,8 +28,7 @@ class Product extends Component {
                 category: "",
                 price: "",
 
-            },
-            message: "",
+            }
         };
     }
 
@@ -113,7 +114,7 @@ class Product extends Component {
                     },
                 }));
 
-                this.setState({ message: "The product updated successfully!" });
+                toast("Product updated successfully!");
             })
             .catch((e) => {
                 console.log(e);
@@ -126,7 +127,7 @@ class Product extends Component {
             .then((reponse) => {
                 console.log(reponse);
 
-                this.setState({ message: "The product updated successfully!" });
+                toast("Product updated successfully!");
             })
             .catch((e) => {
                 console.log(e);
@@ -205,10 +206,6 @@ class Product extends Component {
                             <Button startIcon={<Delete />} className="m-1" variant="outlined" color="error" onClick={this.removeProduct} style={{ textTransform: "none" }}>Delete</Button>
                             <Button startIcon={<Update />} className="m-1" variant="outlined" color="success" onClick={this.updateContent} style={{ textTransform: "none" }}>Update</Button>
 
-                        </div>
-                        <br />
-                        <div className="d-flex justify-content-center">
-                            <p>{this.state.message}</p>
                         </div>
 
                     </div>
