@@ -151,7 +151,7 @@ class Product extends Component {
             <div>
                 {currentProduct ? (
                     <div className="edit-form">
-                        <h4>Product</h4>
+                        <h4>Edit Product</h4>
                         <form>
                             <div className="form-group">
                                 <label htmlFor="name">Name</label>

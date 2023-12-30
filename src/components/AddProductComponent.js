@@ -105,6 +105,7 @@ class AddProduct extends Component {
                 ) : (
                     <div>
                         <div className="form-group">
+                            <h4>Add Product</h4>
                             <label htmlFor="name">Name</label>
                             <input
                                 type="text"
