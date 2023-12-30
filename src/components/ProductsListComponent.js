@@ -16,6 +16,7 @@ const ProductsList = () => {
     const [products, setProducts] = useState([]);
     const [cartProducts, setCartProducts] = useState([]);
     const [currentProduct, setCurrentProduct] = useState(null);
+    const [totalPrice, setTotalPrice] = useState("");
     const [cartId, setCartId] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(-1);
     const [showModal, setShowModal] = useState(false);
@@ -33,8 +34,13 @@ const ProductsList = () => {
             setCartId(response.data.id);
             isCartExist = true;
             setCartProducts(response.data.products);
+            getTotalPrice(response.data.id);
         } catch (e) {
             console.log(e);
+        }
+
+        if (isCartExist) {
+
         }
 
         if (!isCartExist) {
@@ -113,6 +119,7 @@ const ProductsList = () => {
                 const { products } = response.data;
                 setCartProducts(products);
                 console.log(response.data);
+                getTotalPrice(cartId);
                 toast(product.name + " added to cart");
             })
             .catch((e) => {
@@ -127,13 +134,23 @@ const ProductsList = () => {
                 const { products } = response.data;
                 setCartProducts(products);
                 console.log(response.data);
-
+                getTotalPrice(cartId);
             })
             .catch((e) => {
                 console.log(e);
             });
     };
 
+    const getTotalPrice = (cartId) => {
+        cartService.getTotalPrice(cartId)
+            .then((response) => {
+                setTotalPrice(response.data.total_price)
+                console.log(response.data);
+            })
+            .catch((e) => {
+                console.log(e);
+            });
+    };
 
     return (
         <div className="row justify-content-md-center">
@@ -221,6 +238,7 @@ const ProductsList = () => {
                                 <Button startIcon={<DeleteIcon />} size="small" className="m-1" variant="outlined" color="primary" onClick={() => removeProductFromCart(cartProduct)} style={{ textTransform: "none" }}>Remove</Button>
                             </ListGroup.Item>
                         ))}
+                    <strong>Total Price: {totalPrice}</strong>
                 </ListGroup>
             </div>
 

@@ -28,6 +28,9 @@ class CartService {
         return axios.delete(`shopping-cart/${cartId}/products/${productId}`, { headers: AuthHeader() });
     }
 
+    getTotalPrice(cartId){
+        return axios.get(`shopping-cart/totalprice/${cartId}`, { headers: AuthHeader() });
+    }
 
     deleteAll() {
         return axios.delete(`shopping-cart/deleteAll`, { headers: AuthHeader() });
