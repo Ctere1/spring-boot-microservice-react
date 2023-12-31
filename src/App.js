@@ -95,18 +95,18 @@ class App extends Component {
                         About
                       </NavDropdown.Item>
                       <NavDropdown.Divider />
-                      <NavDropdown.Item href="http://localhost:8761/" target="_blank">
+                      <NavDropdown.Item href={process.env.REACT_APP_EUREKA_URL} target="_blank">
                         Eureka Server
                       </NavDropdown.Item>
                     </NavDropdown>
                     <NavDropdown title="Swagger" id="basic-nav-dropdown">
-                      <NavDropdown.Item href="http://localhost:5865/swagger-ui/index.html#/" target="_blank">
+                      <NavDropdown.Item href={process.env.REACT_APP_USER_SERVICE_SWAGGER_URL} target="_blank">
                         User Service
                       </NavDropdown.Item>
-                      <NavDropdown.Item href="http://localhost:5863/swagger-ui/index.html#/" target="_blank">
+                      <NavDropdown.Item href={process.env.REACT_APP_CART_SERVICE_SWAGGER_URL} target="_blank">
                         Cart Service
                       </NavDropdown.Item>
-                      <NavDropdown.Item href="http://localhost:5861/swagger-ui/index.html#/" target="_blank">
+                      <NavDropdown.Item href={process.env.REACT_APP_PRODUCT_SERVICE_SWAGGER_URL} target="_blank">
                         Product Service
                       </NavDropdown.Item>
                     </NavDropdown>

@@ -1,12 +1,11 @@
 import axios from "axios";
 
-
-const API_URL = "http://localhost:5860/api/user/";
+axios.defaults.baseURL = process.env.REACT_APP_BASE_API_URL;
 
 class AuthService {
     login(username, password) {
         return axios
-            .post(API_URL + "signin", { username, password })
+            .post("user/signin", { username, password })
             .then((response) => {
                 if (response.data.accessToken) {
                     localStorage.setItem("user", JSON.stringify(response.data));
@@ -21,7 +20,7 @@ class AuthService {
     }
 
     register(username, email, password) {
-        return axios.post(API_URL + "signup", {
+        return axios.post("user/signup", {
             username,
             email,
             password,

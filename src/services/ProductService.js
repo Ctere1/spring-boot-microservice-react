@@ -1,7 +1,7 @@
 import axios from "axios";
 import AuthHeader from "./AuthHeader";
 
-axios.defaults.baseURL = "http://localhost:5860/api/";
+axios.defaults.baseURL = process.env.REACT_APP_BASE_API_URL;
 
 class ProductService {
     getAll() {
