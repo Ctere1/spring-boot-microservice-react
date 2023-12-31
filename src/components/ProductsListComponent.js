@@ -8,7 +8,8 @@ import { Card, ListGroup, Modal } from "react-bootstrap";
 import cartService from "../services/CartService";
 import DeleteIcon from '@mui/icons-material/Delete';
 import Button from '@mui/material/Button';
-import { Add, ListAltOutlined, ShoppingCartRounded } from "@mui/icons-material";
+import IconButton from '@mui/material/IconButton';
+import { Add, Inventory2Sharp, ShoppingCartRounded } from "@mui/icons-material";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -18,7 +19,6 @@ const ProductsList = () => {
     const [currentProduct, setCurrentProduct] = useState(null);
     const [totalPrice, setTotalPrice] = useState("");
     const [cartId, setCartId] = useState(null);
-    const [currentIndex, setCurrentIndex] = useState(-1);
     const [showModal, setShowModal] = useState(false);
 
     const handleCloseModal = () => setShowModal(false);
@@ -37,10 +37,6 @@ const ProductsList = () => {
             getTotalPrice(response.data.id);
         } catch (e) {
             console.log(e);
-        }
-
-        if (isCartExist) {
-
         }
 
         if (!isCartExist) {
@@ -79,16 +75,20 @@ const ProductsList = () => {
         retrieveCart();
         retrieveProducts();
         setCurrentProduct(null);
-        setCurrentIndex(-1);
     };
 
     const setActiveProduct = (product, index) => {
         setCurrentProduct(product);
-        setCurrentIndex(index);
         handleShowModal();
     };
 
     const deleteAllProducts = () => {
+        const isConfirmed = window.confirm("Are you sure you want to delete all products?");
+
+        if (!isConfirmed) {
+            return;
+        }
+
         productService.deleteAll()
             .then((response) => {
                 console.log(response.data);
@@ -202,43 +202,48 @@ const ProductsList = () => {
             </Modal>
 
             <div className="col-md-9">
-                <h4><ListAltOutlined />Products List</h4>
-                <ListGroup>
-                    {products &&
-                        products.map((product, index) => (
-                            <ListGroup.Item
-                                active={index === currentIndex}
-                                onClick={() => setActiveProduct(product, index)}
-                                key={index}
-                            >
-                                {product.name}
-                            </ListGroup.Item>
-                        ))}
-                </ListGroup>
+                <h4><Inventory2Sharp /> Products </h4>
                 <div className="col-md-12 d-flex align-items-center justify-content-start">
                     <Button startIcon={<DeleteIcon />} className="" variant="outlined" color="error" onClick={deleteAllProducts} style={{ textTransform: "none" }}>Delete All</Button>
-                    <Link to={"/products/add"}>
-                        <Button startIcon={<Add />} className="m-3" variant="outlined" color="primary" style={{ textTransform: "none" }}>Add New</Button>
-                    </Link>
+                    <Link to={"/products/add"}><Button startIcon={<Add />} className="m-3" variant="outlined" color="primary" style={{ textTransform: "none" }}>Add New</Button></Link>
+                </div>
+                <hr className="styled-hr" />
+                <div className="row row-cols-1 row-cols-md-4 g-4">
+                    {products &&
+                        products.map((product, index) => (
+                            <div key={index} className="col">
+                                <Card className="product-card" onClick={() => setActiveProduct(product, index)}>
+                                    <Card.Img variant="top" src="https://placehold.co/250x150" />
+                                    <Card.Body >
+                                        <Card.Title style={{ textTransform: 'capitalize' }}>{product.name}</Card.Title>
+                                        <Card.Subtitle className="mb-2 text-muted">{product.category}</Card.Subtitle>
+                                        <Card.Text>
+                                            {product.description}
+                                        </Card.Text>
+                                    </Card.Body>
+                                </Card>
+                            </div>
+                        ))}
                 </div>
             </div>
 
-
-            <div className="col-md-3">
-                <h4><ShoppingCartRounded /> My Cart </h4>
+            <div className="col-md-3 cart-container">
+                <h4 className="cart-title"><ShoppingCartRounded /> My Cart </h4>
                 <ListGroup>
                     {cartProducts &&
                         cartProducts.map((cartProduct, index) => (
                             <ListGroup.Item
-                                //active={index === currentIndex}
                                 // onClick={() => setActiveProduct(cartProduct, index)}
                                 key={index}
                                 style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                                <span>{cartProduct.name}</span>
-                                <Button startIcon={<DeleteIcon />} size="small" className="m-1" variant="outlined" color="primary" onClick={() => removeProductFromCart(cartProduct)} style={{ textTransform: "none" }}>Remove</Button>
+                                <span style={{ textTransform: 'capitalize' }}>{cartProduct.name} </span>
+                                <IconButton aria-label="delete" onClick={() => removeProductFromCart(cartProduct)} ><DeleteIcon size="small" color="primary" /></IconButton>
                             </ListGroup.Item>
                         ))}
-                    <strong>Total Price: {totalPrice}</strong>
+                    <div className="total-price-container">
+                        <strong>Total Price:</strong>
+                        <span className="total-price">{totalPrice}</span>
+                    </div>
                 </ListGroup>
             </div>
 

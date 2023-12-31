@@ -46,3 +46,46 @@ label {
   max-width: 300px;
   margin: auto;
 }
+
+.cart-title {
+  font-size: 1.5rem;
+}
+
+.cart-container {
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+  padding: 10px;
+  border-radius: 5px;
+  height: fit-content;
+}
+
+.cart-item {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total-price-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  padding: 10px;
+  border: 1px solid #ced4da;
+}
+
+.total-price {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.product-card:hover {
+  border-color: #0080ff;
+  cursor: pointer;
+}
+
+.styled-hr {
+  width: 100%;
+  margin-top: 0px;
+}
