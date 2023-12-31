@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -73,7 +73,7 @@ class App extends Component {
     const { currentUser } = this.state;
 
     return (
-      <Router history={history}>
+      <>
         <Navbar expand="lg" className="bg-body-tertiary" bg="dark" data-bs-theme="dark">
           <Container>
             <Navbar.Brand href="/">
@@ -151,6 +151,7 @@ class App extends Component {
                 <Route path="/about" element={<AboutComponent />} />
               </>
             )}
+            <Route path="*" element={<Navigate to="/" />} />
           </Routes>
 
         </div>
@@ -158,7 +159,7 @@ class App extends Component {
         <ToastContainer />
         <AuthVerify logOut={this.logOut} />
 
-      </Router>
+      </>
     );
   }
 }
