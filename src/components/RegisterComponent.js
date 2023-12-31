@@ -114,7 +114,7 @@ class Register extends Component {
             <div className="col-md-12">
                 <div className="cardLogin card-container">
                     <img
-                        src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+                        src="https://picsum.photos/200"
                         alt="profile-img"
                         className="profile-img-card"
                     />
@@ -163,7 +163,7 @@ class Register extends Component {
                                     />
                                 </div>
 
-                                <div className="form-group">
+                                <div className="form-group d-flex justify-content-end">
                                     <button className="mt-3 btn btn-primary btn-block">Sign Up</button>
                                 </div>
                             </div>
