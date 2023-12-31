@@ -86,7 +86,7 @@ class Login extends Component {
             <div className="col-md-12">
                 <div className="cardLogin card-container">
                     <img
-                        src="https://picsum.photos/200"
+                        src="https://picsum.photos/400"
                         alt="profile-img"
                         className="profile-img-card"
                     />

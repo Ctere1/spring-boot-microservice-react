@@ -13,14 +13,17 @@ class Profile extends Component {
         }
 
         return (
-            <div className="container">
-                <header className="jumbotron">
-                    <h3>
-                        <strong>Profile</strong>
-                    </h3>
-                </header>
-                <Card style={{ marginTop: 0 }}>
+            <div className="container d-grid justify-content-center">
+                <h3>
+                    Profile
+                </h3>
+                <Card style={{ marginTop: 0, maxWidth: '400px' }}>
                     <Card.Header><strong>Id:</strong> {currentUser.id}</Card.Header>
+                    <Card.Img
+                        variant="top"
+                        src="https://picsum.photos/1200"
+                        style={{ height: '220px', objectFit: 'cover', alignSelf: 'center' }}
+                    />
                     <Card.Body>
                         <Card.Text>
                             <label>
