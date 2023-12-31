@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -34,8 +34,6 @@ class App extends Component {
     this.logOut = this.logOut.bind(this);
 
     this.state = {
-      showModeratorBoard: false,
-      showAdminBoard: false,
       currentUser: undefined,
     };
 
@@ -141,17 +139,16 @@ class App extends Component {
             <Route exact path="/home" element={<HomeComponent />} />
             <Route exact path="/login" element={<LoginComponent />} />
             <Route exact path="/register" element={<RegisterComponent />} />
-            <Route exact path="/profile" element={<ProfileComponent />} />
 
             {currentUser && (
-              <>
+              <>       
+                <Route exact path="/profile" element={<ProfileComponent />} />
                 <Route exact path="/products/add" element={<AddProductComponent />} />
                 <Route path="/products/:id" element={<ProductEditComponent />} />
                 <Route path="/products" element={<ProductsListComponent />} />
                 <Route path="/about" element={<AboutComponent />} />
               </>
             )}
-            <Route path="*" element={<Navigate to="/" />} />
           </Routes>
 
         </div>
