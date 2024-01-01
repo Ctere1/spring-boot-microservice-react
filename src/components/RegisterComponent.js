@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import Form from "react-validation/build/form";
 import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator";
-
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { connect } from "react-redux";
 import { register } from "../actions/auth";
 
@@ -95,6 +96,7 @@ class Register extends Component {
                     register(this.state.username, this.state.email, this.state.password)
                 )
                 .then(() => {
+                    toast("You can login now");
                     this.setState({
                         successful: true,
                     });
@@ -168,7 +170,7 @@ class Register extends Component {
                                 </div>
                             </div>
                         )}
-
+                        <br />
                         {message && (
                             <div className="form-group">
                                 <div className={this.state.successful ? "alert alert-success" : "alert alert-danger"} role="alert">

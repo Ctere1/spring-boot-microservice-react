@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import { Navigate } from 'react-router-dom';
+import { Navigate, Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import { Card } from "react-bootstrap";
+import Button from '@mui/material/Button';
+import { ModeEdit } from "@mui/icons-material";
 
 class Profile extends Component {
 
@@ -32,6 +34,12 @@ class Profile extends Component {
                                 <strong>Token:</strong> {currentUser.accessToken.substring(0, 20)} ... {currentUser.accessToken.substr(currentUser.accessToken.length - 20)}
                             </label>{" "}
                         </Card.Text>
+                        <div className="d-flex justify-content-md-end">
+                            <Link to={"/profile/" + currentUser.id}>
+                                <Button startIcon={<ModeEdit />} className="m-1" variant="outlined" color="primary" onClick={this.updateProfile} style={{ textTransform: "none" }}>Edit</Button>
+                            </Link>
+                           
+                        </div>
                     </Card.Body>
                 </Card>
 

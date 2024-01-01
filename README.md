@@ -76,6 +76,9 @@
 > * User profile page
 > 
 >   ![Profile](./screenshots/ss3.png)
+> 
+> * User edit page
+>   ![Profile](./screenshots/ss3.5.png)
 
 ### **Products Page**
 > * Products page

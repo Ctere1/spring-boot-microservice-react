@@ -132,10 +132,10 @@ class Login extends Component {
                                 <span>Login</span>
                             </button>
                         </div>
-
+                        <br />
                         {message && (
                             <div className="form-group">
-                                <div className="alert alert-danger" role="alert">
+                                <div className="alert alert-info" role="alert">
                                     {message}
                                 </div>
                             </div>
@@ -148,13 +148,12 @@ class Login extends Component {
                         />
                     </Form>
                 </div>
-            </div>
+            </div >
         );
     }
 }
 
 function mapStateToProps(state) {
-    console.log(state)
     const { isLoggedIn } = state.auth;
     const { message } = state.message;
     return {

@@ -25,9 +25,8 @@ export const register = (username, email, password) => (dispatch) => {
         },
         (error) => {
             const message =
-                (error.response &&
-                    error.response.data &&
-                    error.response.data.message) ||
+                error?.response?.data?.message ||
+                error?.response?.data?.errors ||
                 error.message ||
                 error.toString();
 
@@ -57,9 +56,8 @@ export const login = (username, password) => (dispatch) => {
         },
         (error) => {
             const message =
-                (error.response &&
-                    error.response.data &&
-                    error.response.data.message) ||
+                error?.response?.data?.message ||
+                error?.response?.data?.errors ||
                 error.message ||
                 error.toString();
 

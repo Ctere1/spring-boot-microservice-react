@@ -12,3 +12,6 @@ export const LOGOUT = "LOGOUT";
 
 export const SET_MESSAGE = "SET_MESSAGE";
 export const CLEAR_MESSAGE = "CLEAR_MESSAGE";
+
+export const UPDATE_PROFILE = "UPDATE_PROFILE";
+export const DELETE_PROFILE = "DELETE_PROFILE";

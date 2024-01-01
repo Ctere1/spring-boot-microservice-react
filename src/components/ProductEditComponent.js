@@ -105,8 +105,8 @@ class Product extends Component {
 
         this.props
             .updateProduct(this.state.currentProduct.id, data)
-            .then((reponse) => {
-                console.log(reponse);
+            .then((response) => {
+                console.log(response);
 
                 this.setState((prevState) => ({
                     currentProduct: {
@@ -124,8 +124,8 @@ class Product extends Component {
     updateContent() {
         this.props
             .updateProduct(this.state.currentProduct.id, this.state.currentProduct)
-            .then((reponse) => {
-                console.log(reponse);
+            .then((response) => {
+                console.log(response);
 
                 toast("Product updated successfully!");
             })

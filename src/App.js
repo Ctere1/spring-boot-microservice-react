@@ -26,6 +26,7 @@ import EventBus from "./common/EventBus";
 import { Login, Logout, Person, PersonAdd } from "@mui/icons-material";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ProfileEditComponent from "./components/ProfileEditComponent";
 
 class App extends Component {
   constructor(props) {
@@ -137,6 +138,7 @@ class App extends Component {
             {currentUser && (
               <>
                 <Route exact path="/profile" element={<ProfileComponent />} />
+                <Route exact path="/profile/:id" element={<ProfileEditComponent logOut={this.logOut} />} />
                 <Route exact path="/products/add" element={<AddProductComponent />} />
                 <Route path="/products/:id" element={<ProductEditComponent />} />
                 <Route path="/products" element={<ProductsListComponent />} />
