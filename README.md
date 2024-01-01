@@ -31,7 +31,7 @@
 
 - This is a simple react application to demonstrate how to integrate Spring Boot (Microservice) and React. 
 - The application is allows users to register and login. Once the user logs in, they can view a list of products and user's cart. 
-- The user can create, edit and delete products and add products to cart.
+- The user can create, edit and delete products and add products to cart. (If any user has a product in their cart, that product cannot be deleted.)
 - JWT is used for authentication. 
 - Redux is used for state management.
 
