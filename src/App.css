@@ -25,8 +25,10 @@ label {
   margin: 0 auto 20px;
   display: block;
   border-radius: 50%;
-  object-fit: cover; /* Ensure the image maintains its aspect ratio */
-  border: 2px solid #3498db; /* Blue border color */
+  object-fit: cover;
+  /* Ensure the image maintains its aspect ratio */
+  border: 2px solid #3498db;
+  /* Blue border color */
 }
 
 .list {
@@ -86,4 +88,57 @@ label {
 .styled-hr {
   width: 100%;
   margin-top: 0px;
+}
+
+/* About PAGE */
+.aboutCard {
+  background: #eee;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.aboutCard:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background-color: #0080ff6b;
+  transform: scaleY(1);
+  transition: all 0.5s;
+  transform-origin: bottom
+}
+
+.aboutCard:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background-color: #0080ff;
+  transform: scaleY(0);
+  transition: all 0.5s;
+  transform-origin: bottom
+}
+
+.aboutCard:hover::after {
+  transform: scaleY(1);
+}
+
+.aboutfonts {
+  font-size: 14px;
+}
+
+.about-social-list {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  padding: 10px;
+  color: #0080ff;
+  font-size: 19px;
 }

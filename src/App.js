@@ -13,7 +13,6 @@ import LoginComponent from "./components/LoginComponent";
 import RegisterComponent from "./components/RegisterComponent";
 import HomeComponent from "./components/HomeComponent";
 import ProfileComponent from "./components/ProfileComponent";
-import AboutComponent from "./components/AboutComponent";
 import AddProductComponent from "./components/AddProductComponent";
 import ProductEditComponent from "./components/ProductEditComponent";
 import ProductsListComponent from "./components/ProductsListComponent";
@@ -90,15 +89,6 @@ class App extends Component {
                 <>
                   <Nav className="me-auto">
                     <Nav.Link href="/products">Products</Nav.Link>
-                    <NavDropdown title="Tools" id="basic-nav-dropdown">
-                      <NavDropdown.Item href="/about">
-                        About
-                      </NavDropdown.Item>
-                      <NavDropdown.Divider />
-                      <NavDropdown.Item href={process.env.REACT_APP_EUREKA_URL} target="_blank">
-                        Eureka Server
-                      </NavDropdown.Item>
-                    </NavDropdown>
                     <NavDropdown title="Swagger" id="basic-nav-dropdown">
                       <NavDropdown.Item href={process.env.REACT_APP_USER_SERVICE_SWAGGER_URL} target="_blank">
                         User Service
@@ -108,6 +98,10 @@ class App extends Component {
                       </NavDropdown.Item>
                       <NavDropdown.Item href={process.env.REACT_APP_PRODUCT_SERVICE_SWAGGER_URL} target="_blank">
                         Product Service
+                      </NavDropdown.Item>
+                      <NavDropdown.Divider />
+                      <NavDropdown.Item href={process.env.REACT_APP_EUREKA_URL} target="_blank">
+                        Eureka Server
                       </NavDropdown.Item>
                     </NavDropdown>
                   </Nav><Nav>
@@ -141,12 +135,11 @@ class App extends Component {
             <Route exact path="/register" element={<RegisterComponent />} />
 
             {currentUser && (
-              <>       
+              <>
                 <Route exact path="/profile" element={<ProfileComponent />} />
                 <Route exact path="/products/add" element={<AddProductComponent />} />
                 <Route path="/products/:id" element={<ProductEditComponent />} />
                 <Route path="/products" element={<ProductsListComponent />} />
-                <Route path="/about" element={<AboutComponent />} />
               </>
             )}
           </Routes>

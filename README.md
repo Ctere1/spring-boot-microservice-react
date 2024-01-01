@@ -90,10 +90,6 @@
 > 
 >   ![Profile](./screenshots/ss6.png)
 
-### **About Page**
-> * User profile page
-> 
->   ![Profile](./screenshots/ss7.png)
 
 ### **Swagger Documents**
 > * User service
